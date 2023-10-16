@@ -6,7 +6,7 @@ import { type Browser, chromium, firefox, webkit } from "playwright";
 async function detectGlobals(browser: Browser): Promise<string[]> {
     const page = await browser.newPage();
     await page.goto("about:blank");
-    const globals = await page.evaluate("Object.keys(globalThis)");
+    const globals = await page.evaluate("Object.keys(Object.getOwnPropertyDescriptors(globalThis))");
 
     if (!Array.isArray(globals)) {
         throw new TypeError("failed to retrieve globals");
