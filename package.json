@@ -26,7 +26,7 @@
         "build": "tsup",
         "collect": "tsx ./scripts/collect.ts && pnpm dprint fmt src/globals.ts",
         "format:check": "dprint check",
-        "format:write": "dprint fmt src/**/*.ts",
+        "format:write": "dprint fmt",
         "lint": "eslint src",
         "lint:fix": "eslint --fix src",
         "publish": "pnpm run format:write && pnpm run lint && pnpm run collect && pnpm run build && publint"
