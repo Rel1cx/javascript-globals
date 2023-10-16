@@ -1,12 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { type Browser, chromium, firefox, webkit } from "playwright";
+import { type BrowserType, chromium, firefox, webkit } from "playwright";
 
-async function detectGlobals(browser: Browser): Promise<string[]> {
+async function detectGlobals(browserType: BrowserType<{}>): Promise<string[]> {
+    const browser = await browserType.launch();
+
     const page = await browser.newPage();
     await page.goto("about:blank");
     const globals = await page.evaluate("Object.keys(Object.getOwnPropertyDescriptors(globalThis))");
+
+    await browser.close();
 
     if (!Array.isArray(globals)) {
         throw new TypeError("failed to retrieve globals");
@@ -17,10 +21,8 @@ async function detectGlobals(browser: Browser): Promise<string[]> {
 
 async function main() {
     const browsers = [chromium, firefox, webkit];
-    const browserInstances = await Promise.all(browsers.map((browser) => browser.launch()));
-    const globals = await Promise.all(browserInstances.map(detectGlobals));
+    const globals = await Promise.all(browsers.map(detectGlobals));
     const flattenedGlobals = globals.flat();
-    await Promise.all(browserInstances.map((browser) => browser.close()));
     const uniqueGlobals = [...new Set(flattenedGlobals)];
 
     console.log(`collected ${uniqueGlobals.length} globals`);
