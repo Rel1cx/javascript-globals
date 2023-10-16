@@ -12,9 +12,20 @@
     "lint": "eslint src",
     "lint:fix": "eslint --fix src"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "browser",
+    "globals",
+    "confusing-browser-globals"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rel1cx/browser-globals.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rel1cx/browser-globals/issues"
+  },
+  "author": "Eva1ent",
+  "license": "MIT",
   "packageManager": "pnpm@8.9.0",
   "devDependencies": {
     "@tsconfig/node20": "20.1.2",
