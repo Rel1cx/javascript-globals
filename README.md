@@ -4,13 +4,13 @@ Auto-generated JavaScript globals for all environments.
 
 ## TODO
 
-- [ ] Add per-browser exports
+- [ ] Add per-environment globals
 - [ ] Setup GitHub Workflow to auto-generate and publish to NPM
-- [ ] Migrate to pnpm workspaces and add other environments like Node.js, Deno, bun etc.
+- [ ] Migrate to pnpm workspaces and add other environments in [ESLint: Specifying Environments](https://eslint.org/docs/latest/use/configure/language-options#specifying-environments)
 
 ## Why?
 
-[confusing-browser-globals](https://github.com/facebook/create-react-app/blob/main/packages/confusing-browser-globals/index.js#L10) inside `create-react-app` project is outdated and doesn't include all the globals. and `create-react-app` itself is also outdated and deprecated.
+[confusing-browser-globals](https://github.com/facebook/create-react-app/blob/main/packages/confusing-browser-globals/index.js) inside `create-react-app` project is outdated and doesn't include all the globals. and `create-react-app` itself is also outdated and deprecated.
 
 This project aims to provide a well maintained and up-to-date list of all the globals for all the JavaScript environments.
 

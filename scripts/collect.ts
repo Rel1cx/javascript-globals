@@ -22,8 +22,7 @@ async function detectGlobals(browserType: BrowserType): Promise<string[]> {
 async function main() {
     const browsers = [chromium, firefox, webkit];
     const globals = await Promise.all(browsers.map(detectGlobals));
-    const flattenedGlobals = globals.flat();
-    const uniqueGlobals = [...new Set(flattenedGlobals)];
+    const uniqueGlobals = [...new Set(globals.flat())];
 
     console.log(`collected ${uniqueGlobals.length} globals`);
 
