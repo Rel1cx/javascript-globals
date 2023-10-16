@@ -3,14 +3,14 @@ import path from "node:path";
 
 import { type BrowserType, chromium, firefox, webkit } from "playwright";
 
+import { autoclosing } from "./lib/autoclosing";
+
 async function detectGlobals(browserType: BrowserType): Promise<string[]> {
-    const browser = await browserType.launch();
+    await using browser = autoclosing(await browserType.launch());
 
     const page = await browser.newPage();
     await page.goto("about:blank");
     const globals = await page.evaluate("Object.keys(Object.getOwnPropertyDescriptors(globalThis))");
-
-    await browser.close();
 
     if (!Array.isArray(globals)) {
         throw new TypeError("failed to retrieve globals");
