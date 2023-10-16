@@ -3,7 +3,7 @@ import path from "node:path";
 
 import { type BrowserType, chromium, firefox, webkit } from "playwright";
 
-async function detectGlobals(browserType: BrowserType<{}>): Promise<string[]> {
+async function detectGlobals(browserType: BrowserType): Promise<string[]> {
     const browser = await browserType.launch();
 
     const page = await browser.newPage();
@@ -16,7 +16,7 @@ async function detectGlobals(browserType: BrowserType<{}>): Promise<string[]> {
         throw new TypeError("failed to retrieve globals");
     }
 
-    return globals.filter((x) => typeof x === "string") as string[];
+    return globals as string[];
 }
 
 async function main() {
