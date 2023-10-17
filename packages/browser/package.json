@@ -1,45 +1,48 @@
 {
-  "name": "@globals/browser",
-  "version": "1.0.2",
-  "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/Rel1cx/javascript-globals",
-  "bugs": {
-    "url": "https://github.com/Rel1cx/javascript-globals/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Rel1cx/javascript-globals.git",
-    "directory": "packages/tools"
-  },
-  "license": "MIT",
-  "author": "Eva1ent<let@ik.me>",
-  "type": "module",
-  "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
+    "name": "@globals/browser",
+    "version": "1.0.2",
+    "description": "",
+    "keywords": [],
+    "homepage": "https://github.com/Rel1cx/javascript-globals",
+    "bugs": {
+        "url": "https://github.com/Rel1cx/javascript-globals/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Rel1cx/javascript-globals.git",
+        "directory": "packages/tools"
+    },
+    "license": "MIT",
+    "author": "Eva1ent<let@ik.me>",
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            },
+            "require": {
+                "types": "./dist/index.d.cts",
+                "default": "./dist/index.cjs"
+            }
+        }
+    },
+    "main": "dist/index.cjs",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "collect": "tsx ./scripts/collect.ts",
+        "build": "pnpm run collect && tsup",
+        "lint:type": "tsc --noEmit",
+        "test": "pnpm vitest --run"
+    },
+    "devDependencies": {
+        "@globals/tools": "workspace:*",
+        "@globals/types": "workspace:*",
+        "pathe": "1.1.1",
+        "playwright": "1.39.0",
+        "valibot": "0.19.0"
     }
-  },
-  "main": "dist/index.cjs",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "collect": "tsx ./scripts/collect.ts && dprint fmt ./src/globals.ts",
-    "build": "pnpm run collect && tsup",
-    "lint:type": "tsc --noEmit"
-  },
-  "devDependencies": {
-    "pathe": "1.1.1",
-    "@globals/tools": "workspace:*",
-    "playwright": "1.39.0"
-  }
 }

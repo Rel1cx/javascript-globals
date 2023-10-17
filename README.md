@@ -4,7 +4,7 @@ Auto-generated JavaScript globals for all environments.
 
 ## TODO
 
-- [ ] Use the same format as [ESLint: Specifying Globals](https://eslint.org/docs/latest/use/configure/language-options#specifying-globals)
+- [x] Use the same format as [ESLint: Specifying Globals](https://eslint.org/docs/latest/use/configure/language-options#specifying-globals)
 - [ ] Add other environments in [ESLint: Specifying Environments](https://eslint.org/docs/latest/use/configure/language-options#specifying-environments)
 - [ ] Setup GitHub Workflow to auto-generate and publish to NPM
 

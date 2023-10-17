@@ -83,6 +83,18 @@ const config = {
             },
         },
         {
+            extends: ["plugin:vitest/recommended"],
+            files: "*.spec.ts",
+            plugins: ["vitest"],
+            rules: {
+                "functional-core/purity": "off",
+                "perfectionist/sort-objects": "off",
+                "sonarjs/no-duplicate-string": "off",
+                "vitest/consistent-test-filename": "off",
+                "vitest/require-hook": "off",
+            },
+        },
+        {
             files: ["./packages/*/tsup.config.ts"],
             rules: {
                 "@typescript-eslint/no-unsafe-argument": "off",
