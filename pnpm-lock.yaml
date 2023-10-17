@@ -2965,7 +2965,7 @@ packages:
     resolution: {integrity: sha512-vNMxFOyNFdObgfWmDFh5Vw0sPAU+icn3vug+s2QaYsqAq1Fhm1x38BrSOjglOSn/BptyxW1b14I3w5F4V0ItMg==}
     engines: {bun: '>=1.0.3', node: '>=18.16.0'}
     peerDependencies:
-      eslint: '>=8.51.0'
+      eslint: '>=8.49.0'
       typescript: beta
     dependencies:
       '@babel/core': 7.23.2

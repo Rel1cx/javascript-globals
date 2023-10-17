@@ -2,22 +2,23 @@ import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
 import { autoclosing } from "@globals/tools";
-import { type GlobalDefinition, isGlobalPropertyDescriptors } from "@globals/types";
+import { type GlobalDefinition, PropertyDescriptorSchema } from "@globals/types";
 import path from "pathe";
 import { type BrowserType, chromium, firefox, webkit } from "playwright";
+import * as v from "valibot";
 
 async function detectGlobals(browserType: BrowserType) {
     await using browser = autoclosing(await browserType.launch());
 
     const page = await browser.newPage();
     await page.goto("about:blank");
-    const globalPropertyDescriptors = await page.evaluate("Object.getOwnPropertyDescriptors(globalThis)");
+    const descriptors = await page.evaluate("Object.getOwnPropertyDescriptors(globalThis)");
 
-    if (!isGlobalPropertyDescriptors(globalPropertyDescriptors)) {
-        throw new TypeError("failed to retrieve global property descriptors");
+    if (!v.is(v.record(v.string(), PropertyDescriptorSchema), descriptors)) {
+        throw new Error("failed to retrieve global property descriptors");
     }
 
-    return Object.entries(globalPropertyDescriptors)
+    return Object.entries(descriptors)
         .reduce<GlobalDefinition>((acc, [key, descriptor]) => {
             // when writable is not specified, fallback to "writable"
             if (descriptor.writable !== undefined && !descriptor.writable) {
