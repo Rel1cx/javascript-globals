@@ -1069,7 +1069,8 @@
         "rambda",
         "treeshake",
         "tsup",
-        "taze"
+        "taze",
+        "knip"
     ],
     "useGitignore": true
 }

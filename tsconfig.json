@@ -7,6 +7,7 @@
     },
     "include": [
         ".eslintrc.cjs",
+        "knip.ts",
         "taze.config.ts",
         "scripts/**/*.ts",
         "packages/*/scripts/**/*.ts",
