@@ -1,0 +1,3 @@
+# webextensions environment
+
+WIP.

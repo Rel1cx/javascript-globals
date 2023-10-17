@@ -1,19 +1,15 @@
 {
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
-        "target": "ESNext",
-        "lib": [
-            "ESNext",
-            "ESNext.AsyncIterable",
-            "dom"
+        "types": [
+            "@types/node"
         ]
     },
     "include": [
-        "."
-    ],
-    "exclude": [
-        "node_modules",
-        "**/dist",
-        "test/fixtures"
+        ".eslintrc.cjs",
+        "taze.config.ts",
+        "scripts/**/*.ts",
+        "packages/*/scripts/**/*.ts",
+        "packages/*/*.config.ts"
     ]
 }

@@ -1,0 +1,41 @@
+{
+  "name": "@globals/es2021",
+  "version": "1.0.2",
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/Rel1cx/javascript-globals",
+  "bugs": {
+    "url": "https://github.com/Rel1cx/javascript-globals/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rel1cx/javascript-globals.git",
+    "directory": "packages/tools"
+  },
+  "license": "MIT",
+  "author": "Eva1ent<let@ik.me>",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "lint:type": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@globals/tools": "workspace:*"
+  }
+}

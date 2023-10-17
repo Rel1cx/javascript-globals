@@ -29,6 +29,15 @@
         },
         "editor.tabSize": 4
     },
+    "eslint.workingDirectories": [
+        {
+            "changeProcessCWD": true,
+            "mode": "location"
+        }
+    ],
+    "search.exclude": {
+        "docs": true
+    },
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "typescript.tsdk": "node_modules/typescript/lib"
 }

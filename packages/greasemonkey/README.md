@@ -1,0 +1,3 @@
+# greasemonkey environment
+
+WIP.

@@ -1,5 +1,8 @@
 {
-    "extends": ["@tsconfig/strictest/tsconfig.json", "@tsconfig/node20/tsconfig.json"],
+    "extends": [
+        "@tsconfig/strictest/tsconfig.json",
+        "@tsconfig/node20/tsconfig.json"
+    ],
     "compilerOptions": {
         "module": "ESNext",
         "moduleResolution": "Bundler",
@@ -15,7 +18,16 @@
         "noUnusedParameters": false,
         "exactOptionalPropertyTypes": true,
         "composite": false,
-        "stripInternal": false,
-        "declaration": true
-    }
+        "stripInternal": false
+    },
+    "exclude": [
+        "node_modules",
+        "**/dist",
+        "test/fixtures"
+    ],
+    "plugins": [
+        {
+            "name": "@effect/language-service"
+        }
+    ]
 }
