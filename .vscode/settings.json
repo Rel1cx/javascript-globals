@@ -35,9 +35,13 @@
             "mode": "location"
         }
     ],
-    "search.exclude": {
-        "docs": true
-    },
     "typescript.preferences.importModuleSpecifier": "non-relative",
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "search.exclude": {
+        "pnpm-lock.yaml": true
+    },
+    "files.exclude": {
+        ".*": true,
+        "packages/*/.turbo": true
+    }
 }
