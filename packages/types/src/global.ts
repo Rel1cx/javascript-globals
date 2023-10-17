@@ -1,14 +1,14 @@
 // eslint-disable-next-line functional-core/purity
 import * as v from "valibot";
 
-export type GlobalType = "readonly" | "writeable";
+export type GlobalType = "readonly" | "writable";
 
 export type GlobalDefinition = Record<string, GlobalType>;
 
 export type GlobalPropertyDescriptors = Record<string, PropertyDescriptor>;
 
 export function isGlobalDefinition(value: unknown): value is GlobalDefinition {
-    return v.is(v.record(v.string(), v.union([v.literal("readonly"), v.literal("writeable")])), value);
+    return v.is(v.record(v.string(), v.union([v.literal("readonly"), v.literal("writable")])), value);
 }
 
 export function isGlobalPropertyDescriptors(value: unknown): value is GlobalPropertyDescriptors {

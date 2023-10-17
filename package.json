@@ -15,8 +15,7 @@
     "author": "Eva1ent<let@ik.me>",
     "type": "module",
     "scripts": {
-        "collect": "pnpm -r run collect && dprint fmt packages/*/src/globals.ts && eslint --fix packages/*/src/globals.ts",
-        "build": "turbo build",
+        "build": "turbo build && dprint fmt packages/*/src/globals.ts && eslint --fix packages/*/src/globals.ts",
         "format:check": "dprint check",
         "format:write": "dprint fmt",
         "lint": "pnpm run format:check && pnpm run lint:spell && pnpm run lint:deps && pnpm run lint:type && pnpm run lint:ts",

@@ -19,15 +19,12 @@ async function detectGlobals(browserType: BrowserType) {
 
     return Object.entries(globalPropertyDescriptors)
         .reduce<GlobalDefinition>((acc, [key, descriptor]) => {
-            // if (descriptor.value === undefined) {
-            //     return acc;
-            // }
-
-            if (descriptor.writable) {
-                return { ...acc, [key]: "writeable" };
+            // when writable is not specified, fallback to "writable"
+            if (descriptor.writable !== undefined && !descriptor.writable) {
+                return { ...acc, [key]: "readonly" };
             }
 
-            return { ...acc, [key]: "readonly" };
+            return { ...acc, [key]: "writable" };
             // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         }, Object.create(null));
 }
