@@ -41,7 +41,10 @@
         "pnpm-lock.yaml": true
     },
     "files.exclude": {
-        ".*": true,
-        "packages/*/.turbo": true
+        "**/.turbo": true,
+        ".husky": true,
+        ".npmignore": true,
+        ".eslintcache": true,
+        ".eslintignore": true
     }
 }
